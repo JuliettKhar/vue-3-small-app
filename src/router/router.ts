@@ -40,10 +40,11 @@ export const router = createRouter({
   routes,
 });
 
-export const makeRouter = () => createRouter({
-  history: createWebHistory(),
-  routes,
-});
+export const makeRouter = () =>
+  createRouter({
+    history: createWebHistory(),
+    routes,
+  });
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !store.getState().authors.currentUserId) {

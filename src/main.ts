@@ -6,12 +6,9 @@ import random from 'lodash/random';
 
 import { router } from './router/router';
 
-const delay = (ms: number) => new Promise(res => setTimeout(
-  res,
-  ms,
-));
+const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 // @ts-ignore
-axios.get = async(url: string) => {
+axios.get = async (url: string) => {
   if (url === '/posts') {
     await delay(1000);
     return Promise.resolve({
@@ -21,7 +18,7 @@ axios.get = async(url: string) => {
 };
 
 // @ts-ignore
-axios.put = async(url: string, payload: Post) => {
+axios.put = async (url: string, payload: Post) => {
   if (url === '/posts') {
     await delay(1000);
     return Promise.resolve({
@@ -30,15 +27,11 @@ axios.put = async(url: string, payload: Post) => {
   }
 };
 
-
 // @ts-ignore
-axios.post = async(url: string, payload: Post) => {
+axios.post = async (url: string, payload: Post) => {
   if (url === '/posts') {
     await delay(1000);
-    const id = random(
-      100,
-      10000,
-    );
+    const id = random(100, 10000);
     return Promise.resolve({
       data: { ...payload, id },
     });
@@ -46,10 +39,7 @@ axios.post = async(url: string, payload: Post) => {
 
   if (url === '/users') {
     await delay(1000);
-    const id = random(
-      100,
-      10000,
-    );
+    const id = random(100, 10000);
     const { id: oldId, password, ...rest } = payload;
     return Promise.resolve({
       data: { id, ...rest },
@@ -63,4 +53,3 @@ const app = createApp(App);
 app.use(router);
 
 app.mount('#app');
-

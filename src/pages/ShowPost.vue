@@ -16,14 +16,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import PostViewer from '../components/PostViewer.vue'
-import Progress from '../components/Progress.vue'
+import { defineComponent } from 'vue';
+import PostViewer from '../components/PostViewer.vue';
+import Progress from '../components/Progress.vue';
 
 export default defineComponent({
   components: {
     PostViewer,
-    Progress
-  }
-})
+    Progress,
+  },
+});
 </script>

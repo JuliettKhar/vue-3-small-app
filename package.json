@@ -8,7 +8,8 @@
     "test": "yarn jest",
     "dev": "yarn webpack-dev-server",
     "build": "yarn webpack --mode production",
-    "lint": "eslint --ignore-path .eslintignore .",
+    "lint": "eslint --config .eslintrc.js --ignore-path .eslintignore .",
+    "prettier-format": "prettier 'src/**/*.{ts,vue'} --config prettier.config.js --write",
     "postinstall": "husky install"
   },
   "module": "main",
@@ -59,11 +60,15 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "yarn run prettier-format && yarn run lint",
       "pre-push": "yarn test"
     }
   },
   "lint-staged": {
-    "*.{js,vue,ts}": "yarn run lint"
+    "*.{js,vue,ts}": [
+      "lint",
+      "git add"
+    ],
+    "*.js": "eslint"
   }
 }

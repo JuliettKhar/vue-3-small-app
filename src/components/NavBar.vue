@@ -18,32 +18,34 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, reactive, markRaw } from 'vue'
-import { useModal } from '../hooks/useModal'
-import Signup from './Signup.vue'
-import { useStore } from '../store/store'
+import { defineComponent, computed, reactive, markRaw } from 'vue';
+import { useModal } from '../hooks/useModal';
+import Signup from './Signup.vue';
+import { useStore } from '../store/store';
 
 export default defineComponent({
   setup() {
-    const modal = useModal()
-    const store = useStore()
+    const modal = useModal();
+    const store = useStore();
 
-    const authenticated = computed(() => store.getState().authors.currentUserId)
+    const authenticated = computed(
+      () => store.getState().authors.currentUserId
+    );
     const signup = () => {
-      modal.component = markRaw(Signup)
-      modal.showModal()
-    }
+      modal.component = markRaw(Signup);
+      modal.showModal();
+    };
     const signin = () => {
       // modal.component = markRaw(Signin)
-      modal.showModal()
-    }
+      modal.showModal();
+    };
 
     return {
       modal,
       authenticated,
       signup,
-      signin
-    }
-  }
-})
+      signin,
+    };
+  },
+});
 </script>
