@@ -1,56 +1,56 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
-import Home from '../pages/Home.vue'
-import NewPost from '../pages/NewPost.vue'
-import EditPost from '../pages/EditPost.vue'
-import ShowPost from '../pages/ShowPost.vue'
-import { store } from '../store/store'
+import Home from '../pages/Home.vue';
+import NewPost from '../pages/NewPost.vue';
+import EditPost from '../pages/EditPost.vue';
+import ShowPost from '../pages/ShowPost.vue';
+import { store } from '../store/store';
 
 const routes = [
   {
     name: 'Home',
     path: '/',
-    component: Home
+    component: Home,
   },
   {
     name: 'ShowPost',
     path: '/posts/:id',
-    component: ShowPost
+    component: ShowPost,
   },
   {
     name: 'NewPost',
     path: '/posts/new',
     component: NewPost,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
   {
     name: 'EditPost',
     path: '/posts/:id/edit',
     component: EditPost,
     meta: {
-      requiresAuth: true
-    }
+      requiresAuth: true,
+    },
   },
-]
+];
 
 export const router = createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
 export const makeRouter = () => createRouter({
   history: createWebHistory(),
-  routes
-})
+  routes,
+});
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !store.getState().authors.currentUserId) {
     next({
-      name: 'Home'
-    })
+      name: 'Home',
+    });
   } else {
-    next()
+    next();
   }
-})
+});

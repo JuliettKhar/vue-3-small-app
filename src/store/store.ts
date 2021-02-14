@@ -3,21 +3,21 @@ import axios from 'axios'
 import {Author, Post, User} from "../types/types"
 
 interface PostsState {
-  ids: string[]
-  all: Record<string, Post>
-  loaded: boolean
+  ids: string[];
+  all: Record<string, Post>;
+  loaded: boolean;
 }
 
 interface AuthorsState {
-  ids: string[]
-  all: Record<string, Author>
-  loaded: boolean
-  currentUserId?: string
+  ids: string[];
+  all: Record<string, Author>;
+  loaded: boolean;
+  currentUserId?: string;
 }
 
 interface State {
-  authors: AuthorsState
-  posts: PostsState
+  authors: AuthorsState;
+  posts: PostsState;
 }
 
 const initialAuthorsState = (): AuthorsState => ({
@@ -39,7 +39,8 @@ export const initialState = (): State => ({
 })
 
 class Store {
-  protected state: State
+  // eslint-disable-next-line
+  protected state: State;
 
   constructor(initialState: State) {
     this.state = reactive(initialState)

@@ -7,7 +7,7 @@
     "test": "yarn jest",
     "dev": "yarn webpack-dev-server",
     "build": "yarn webpack --mode production",
-    "lint": "prettier --write src/**/*.{js,jsx,vue,ts,tsx}"
+    "lint": "eslint --ext .js,.jsx,.vue,.ts,.tsx --ignore-path .gitignore ."
   },
   "module": "main",
   "devDependencies": {
@@ -61,9 +61,6 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "yarn run lint",
-      "git add"
-    ]
+    "*.{js,jsx,vue,ts,tsx}": "yarn run lint"
   }
 }

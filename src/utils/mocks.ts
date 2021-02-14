@@ -1,5 +1,5 @@
-import { Post } from "../types/types";
-import moment from "moment";
+import { Post } from '../types/types';
+import moment from 'moment';
 
 export const basePost: Post = {
   id: 1,
@@ -7,25 +7,31 @@ export const basePost: Post = {
   markdown: 'Content',
   html: '<p>Content</p>',
   authorId: 1,
-  created: moment()
-}
+  created: moment(),
+};
 
 export const todayPost: Post = {
   ...basePost,
   id: 1,
-  title: 'Today'
-}
+  title: 'Today',
+};
 
 export const thisWeek: Post = {
   ...basePost,
   id: 2,
   title: 'This Week',
-  created: moment().subtract(2, 'days')
-}
+  created: moment().subtract(
+    2,
+    'days',
+  ),
+};
 
 export const thisMonth: Post = {
   ...basePost,
   id: 3,
   title: 'This Month',
-  created: moment().subtract(2, 'weeks')
-}
+  created: moment().subtract(
+    2,
+    'weeks',
+  ),
+};

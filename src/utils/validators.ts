@@ -7,33 +7,33 @@ interface Require extends Rule {
 }
 
 interface MinMaxOptions {
-  min: number
-  max: number
+  min: number;
+  max: number;
 }
 
 interface Length extends Rule {
-  type: 'length'
-  options: MinMaxOptions
+  type: 'length';
+  options: MinMaxOptions;
 }
 
 export function required(): Require {
   return {
-    type: 'required'
-  }
+    type: 'required',
+  };
 }
 
 export function length(options: MinMaxOptions): Length {
   return {
     type: 'length',
-    options
-  }
+    options,
+  };
 }
 
 type Validator = Require | Length
 
 export interface Status {
-  valid: boolean
-  message?: string
+  valid: boolean;
+  message?: string;
 }
 
 export function validate(value: string, validators: Validator[]): Status {
@@ -41,20 +41,20 @@ export function validate(value: string, validators: Validator[]): Status {
     if (validator.type === 'required' && (!value || !value.length)) {
       return {
         valid: false,
-        message: 'This field is required'
-      }
+        message: 'This field is required',
+      };
     }
 
     if (validator.type === 'length' && (value.length < validator.options.min || value.length > validator.options.max)) {
       return {
         valid: false,
-        message: `This field has a minimum length of ${validator.options.min} and a maximum length of ${validator.options.max}`
-      }
+        message: `This field has a minimum length of ${validator.options.min} and a maximum length of ${validator.options.max}`,
+      };
     }
   }
 
   // ...
   return {
-    valid: true
-  }
+    valid: true,
+  };
 }
