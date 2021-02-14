@@ -3,5 +3,5 @@
 /docs/
 /jsdoc/
 /tmp/
-tests/
+/tests/
 !.eslintrc.js
