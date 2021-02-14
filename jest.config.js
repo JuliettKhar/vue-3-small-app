@@ -3,11 +3,11 @@ module.exports = {
   globals: {},
   testEnvironment: 'jsdom',
   transform: {
-    "^.+\\.vue$": "vue-jest",
-    "^.+\\js$": "babel-jest"
+    '^.+\\.vue$': 'vue-jest',
+    '^.+\\js$': 'babel-jest',
   },
   moduleFileExtensions: ['vue', 'js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   moduleNameMapper: {
-    "\\.txt$": 'identity-obj-proxy'
-  }
-}
+    '\\.txt$': 'identity-obj-proxy',
+  },
+};

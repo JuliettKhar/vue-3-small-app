@@ -3,5 +3,6 @@
 /docs/
 /jsdoc/
 /tmp/
-/tests/
+/src/tests/
 !.eslintrc.js
+webpack.config.js

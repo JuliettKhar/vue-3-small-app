@@ -8,7 +8,7 @@
     "test": "yarn jest",
     "dev": "yarn webpack-dev-server",
     "build": "yarn webpack --mode production",
-    "lint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore .",
+    "lint": "eslint --ignore-path .eslintignore .",
     "postinstall": "husky install"
   },
   "module": "main",
@@ -59,6 +59,7 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "lint-staged",
       "pre-push": "yarn test"
     }
   },
