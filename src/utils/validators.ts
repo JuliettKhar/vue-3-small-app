@@ -53,7 +53,6 @@ export function validate(value: string, validators: Validator[]): Status {
     }
   }
 
-  // ...
   return {
     valid: true,
   };

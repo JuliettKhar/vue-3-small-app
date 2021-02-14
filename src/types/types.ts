@@ -1,6 +1,6 @@
 import { Moment } from 'moment';
 
-export type Period = 'today' | 'this week' | 'this month'
+export type Period = 'today' | 'this week' | 'this month';
 
 export interface Post {
     id: number;
