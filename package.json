@@ -57,11 +57,5 @@
     "moment": "^2.24.0",
     "vue": "^3.0.2",
     "vue-router": "^4.0.0-alpha.13"
-  },
-  "lint-staged": {
-    "*.{js,vue,ts}": [
-      "yarn run prettier-format && yarn run lint",
-      "git add"
-    ]
   }
 }

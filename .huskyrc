@@ -1,6 +1,12 @@
 {
   "hooks": {
-    "pre-commit": "yarn run prettier-format && yarn run lint",
+    "pre-commit": "lint-staged",
     "pre-push": "yarn test"
+  },
+    "lint-staged": {
+    "*.{js,vue,ts}": [
+      "yarn run prettier-format && yarn run lint",
+      "git add"
+    ]
   }
 }
