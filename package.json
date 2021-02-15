@@ -58,17 +58,10 @@
     "vue": "^3.0.2",
     "vue-router": "^4.0.0-alpha.13"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn run prettier-format && yarn run lint",
-      "pre-push": "yarn test"
-    }
-  },
   "lint-staged": {
     "*.{js,vue,ts}": [
-      "lint",
+      "yarn run prettier-format && yarn run lint",
       "git add"
-    ],
-    "*.js": "eslint"
+    ]
   }
 }
