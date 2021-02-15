@@ -7,6 +7,10 @@
     "*.{js,vue,ts}": [
       "yarn run prettier-format && yarn run lint",
       "git add"
+    ],
+    "*.{scss}": [
+      "yarn run prettier-format",
+      "git add"
     ]
   }
 }
